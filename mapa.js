@@ -1,10 +1,10 @@
 // 1. Inicializar el mapa (centrado por ejemplo en coordenadas latitud, longitud y nivel de zoom)
 const map = L.map('map').setView([10.4631, -73.2532], 14); // Cambia por tus coordenadas reales
 
-// 2. Capa oscura de Stadia / Alidade Smooth Dark (Gratis sin API Key)
-L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
-  maxZoom: 20,
-  attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
+// Servidor estándar de OpenStreetMap
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19,
+  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
 // 3. Agregar marcadores interactivos para tus 4 intersecciones
