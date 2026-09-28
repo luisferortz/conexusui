@@ -12,16 +12,44 @@
   <main class="login-container">
     <h1>Autenticación</h1>
     
-    <form action="/login" method="POST">
-      <input type="password" name="clave" placeholder="Clave" required autocomplete="off">
+    <form id="loginForm">
+      <input type="password" id="claveInput" name="clave" placeholder="Clave" required autocomplete="off">
       <button type="submit">Validar</button>
     </form>
+    
+    <!-- Mensaje de error oculto por defecto -->
+    <p id="errorMessage" style="color: #ff5555; margin-top: 1rem; display: none; font-size: 0.9rem;">
+      Clave incorrecta. Inténtalo de nuevo.
+    </p>
   </main>
 
   <!-- Imagen SVG abajo centrada -->
   <footer class="svg-footer">
     <img src="banner.svg" style="height: 100px; width: auto;" alt="Banner" class="banner-svg">
   </footer>
+
+  <script>
+    const form = document.getElementById('loginForm');
+    const claveInput = document.getElementById('claveInput');
+    const errorMessage = document.getElementById('errorMessage');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // Evita que la página se recargue
+
+      const claveIngresada = claveInput.value;
+
+      if (claveIngresada === 'electronicaupc') {
+        // Marca la sesión como autenticada en el navegador
+        sessionStorage.setItem('auth', 'true');
+        // Redirige al Dashboard
+        window.location.href = 'dashboard.html';
+      } else {
+        // Muestra el mensaje de error si la clave falla
+        errorMessage.style.display = 'block';
+        claveInput.value = '';
+      }
+    });
+  </script>
 
 </body>
 </html>
