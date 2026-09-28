@@ -2,36 +2,31 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard - Semáforos IoT</title>
   <link rel="stylesheet" href="style.css">
-  
-  <!-- Script de protección de ruta -->
-  <script>
-    if (sessionStorage.getItem('auth') !== 'true') {
-      window.location.href = 'index.html';
+
+  <!-- Cargar Leaflet CSS y JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <style>
+    /* Estilo para el contenedor del mapa */
+    #map {
+      height: 400px;
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 1rem;
+      border: 1px solid #333;
     }
-  </script>
+  </style>
 </head>
 <body>
 
-  <header style="width: 100%; display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-    <h1 style="margin-bottom: 0;">Dashboard de Control</h1>
-    <button id="logoutBtn" style="margin-top: 0; padding: 0.5rem 1rem;">Cerrar Sesión</button>
-  </header>
+  <h2>Ubicación de las Intersecciones</h2>
+  
+  <!-- Contenedor del mapa -->
+  <div id="map"></div>
 
-  <main style="width: 100%; max-width: 1000px;">
-    <h2>Intersecciones Semafóricas</h2>
-    <p style="margin-top: 1rem; color: #888888;">Aquí conectarás la librería MQTT para visualizar y controlar las 4 ESP32.</p>
-  </main>
-
-  <script>
-    // Botón para cerrar sesión y destruir la clave guardada
-    document.getElementById('logoutBtn').addEventListener('click', function() {
-      sessionStorage.removeItem('auth');
-      window.location.href = 'index.html';
-    });
-  </script>
-
+  <script src="mapa.js"></script>
 </body>
 </html>
