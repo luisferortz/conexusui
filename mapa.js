@@ -1,11 +1,10 @@
 // 1. Inicializar el mapa (centrado por ejemplo en coordenadas latitud, longitud y nivel de zoom)
 const map = L.map('map').setView([10.4631, -73.2532], 14); // Cambia por tus coordenadas reales
 
-// 2. Agregar la capa con estilo oscuro (CartoDB Dark Matter basado en OpenStreetMap)
-L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-  subdomains: 'abcd',
-  maxZoom: 19
+// 2. Capa oscura de Stadia / Alidade Smooth Dark (Gratis sin API Key)
+L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
+  maxZoom: 20,
+  attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
 }).addTo(map);
 
 // 3. Agregar marcadores interactivos para tus 4 intersecciones
